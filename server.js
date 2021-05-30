@@ -8,6 +8,24 @@ const books = require("./router/books");
 // const about = require("./router/about");
 
 
+const hbs  = require("hbs");
+const path = require("path");
+
+// 設定模板引擎
+app.engine('html',hbs.__express);
+
+// 設定模板 (template) 位置
+app.set("views" , __dirname);
+// app.set("views" , path.join(__dirname ,"application","views"));
+
+// 設定靜態檔 位置
+// app.use(express.static(path.join(__dirname,"application")));
+
+app.get("/hello",(req,res)=>{
+   res.render("template.html");
+})
+
+
 app.get("/",(req,res)=>{
   res.send("Router GOGOGO !!!");
 });
