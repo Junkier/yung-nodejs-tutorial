@@ -18,8 +18,9 @@ app.engine('html',hbs.__express);
 app.set("views" , __dirname);
 // app.set("views" , path.join(__dirname ,"application","views"));
 
-// 設定靜態檔 位置
-// app.use(express.static(path.join(__dirname,"application")));
+// 設定靜態檔 位置 --> 讓 nodejs 知道 , 要去哪個資料夾找 js 檔
+app.use(express.static(path.join(__dirname,"application")));
+
 
 app.get("/hello",(req,res)=>{
    res.render("template.html");
